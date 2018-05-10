@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using iRePORT_PingTest.Common;
 using System.Configuration;
 using iRePORT_PingTest.Pages;
+using OpenQA.Selenium.Chrome;
 
 namespace iRePORT_PingTest
 {
@@ -13,7 +14,8 @@ namespace iRePORT_PingTest
     [TestClass]
     public class Login_Main
     {
-        public static IWebDriver Driver = new FirefoxDriver();
+        //public static IWebDriver Driver = new FirefoxDriver();
+        public static IWebDriver Driver = new ChromeDriver(ConfigurationManager.AppSettings["chromeDriverPath"].ToString());
         public LoginPage loginPage = new LoginPage(Driver);
 
         [Given(@"I have navigated to the login screen")]
